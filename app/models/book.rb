@@ -24,4 +24,8 @@ class Book < ApplicationRecord
       "available"
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["isbn", "title"]
+  end
 end
