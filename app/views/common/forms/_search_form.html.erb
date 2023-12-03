@@ -1,0 +1,4 @@
+<%= search_form_for @q, url: url_for(action: :index) do |f| %>
+  <%= f.search_field :title_cont, placeholder: '本検索' %>
+  <%= f.submit '検索' %>
+<% end %>
