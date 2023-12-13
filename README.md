@@ -76,3 +76,17 @@ docker compose で構成
 
 - app: [ruby:3.1-bullseye](https://hub.docker.com/_/ruby)
 - mysql: [mysql:8.0](https://hub.docker.com/_/mysql)
+
+rspec
+
+## 実行方法
+Terminalで'bundle exec rspec'を実行
+
+## 特定のファイルのみ実行
+bundle exec  rspec spec/パスを指定
+例：bundle exec  rspec /spec/views/requests/search.html.erb_spec.rb
+
+##　特定行のみ実行
+bundle exec  rspec spec/パスを指定:行を指定
+
+bundle exec  rspec /spec/views/requests/search.html.erb_spec.rb:2
