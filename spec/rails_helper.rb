@@ -9,6 +9,8 @@ require 'rspec/rails'
 require 'rails_helper'
 
 require 'factory_bot_rails'
+
+require 'capybara/rspec'
 # FactoryBot.find_definitions
 
 # require 'support'
