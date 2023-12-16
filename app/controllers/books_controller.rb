@@ -9,13 +9,12 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     lending = @book.lendings.where(return_status: false, user_id: current_user.id).first
-    redirect_to lending if lending
+    redirect_to lending_path(lending) and return if lending
     reservation = @book.reservations.where("reservation_at >= ?", Time.now).where(user_id: current_user.id).first
     redirect_to reservation_path(reservation) if reservation
     @reservations = @book.reservations.where("reservation_at >= ?", Time.now).order(reservation_at: :asc)
   end
 
-  
   private
 
   def redirect_to_admin_books
