@@ -73,35 +73,40 @@ ActiveRecord::Base.transaction do
     title:"プロを目指す人のためのRuby入門 言語仕様からテスト駆動開発・デバッグ技法まで",
     author:"伊藤 淳一 ",
     isbn:"4774193976",
-    status: false
+    status: false,
+    user_id: user.id
   )
 
   Request.create!(
     title:"現場で使える Ruby on Rails 5速習実践ガイド", 
     author:"大場寧子",
     isbn:"483996222",
-    status: false
+    status: false,
+    user_id: user.id
   )
 
   Request.create!(
     title:"ゼロからわかる Ruby 超入門", 
     author:"五十嵐邦明",
     isbn:"4297101238",
-    status: false
+    status: false,
+    user_id: user.id
   )
 
   Request.create!(
     title:"怪物に出会った日 井上尚弥と闘うということ", 
     author:"森合 正範",
     isbn:"4065337488",
-    status: true
+    status: true,
+    user_id: user.id
   )
 
   Request.create!(
     title:"大ピンチずかん", 
     author:"鈴木 のりたけ",
     isbn:"4097251384",
-    status: true
+    status: true,
+    user_id: user.id
   )
 
 end
