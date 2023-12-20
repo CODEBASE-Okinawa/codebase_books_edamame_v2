@@ -58,6 +58,9 @@ gem "faker", "2.21.0"
 # Use to notify for Slack 
 gem 'slack-notifier'
 
+# Use to search [https://github.com/activerecord-hackery/ransack]
+gem 'ransack'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debase"

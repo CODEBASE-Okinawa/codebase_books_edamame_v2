@@ -10,6 +10,8 @@ class Book < ApplicationRecord
 
   delegate :created_at, :return_at, :user, to: :lending
 
+  scope :available_books, -> { eager_load(:lendings).where(lendings: { return_status: true }).or(where(lendings: { id: nil}))}
+
   def status_user(user)
     user_id = user&.id
     lending_status = lend_active.any?{ |lending| lending.user_id == user_id }
@@ -23,6 +25,18 @@ class Book < ApplicationRecord
     else
       "available"
     end
+  end
+
+  def self.ransackable_scopes(auth_object = nil)
+    [:available_books]
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["isbn", "title"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["lendings"]
   end
 end
 

@@ -3,7 +3,8 @@ class BooksController < ApplicationController
   before_action :redirect_to_sign_in, only: %i[show], unless: :user_signed_in?
 
   def index
-    @books = Book.eager_load(:reservation_active, :lend_active).with_attached_image.order(:id)
+    @q = Book.ransack(params[:q])
+    @books = @q.result(distinct: true).eager_load(:reservation_active, :lend_active).with_attached_image.order(:id)
   end
 
   def show
@@ -22,5 +23,4 @@ class BooksController < ApplicationController
 
     redirect_to admin_books_path
   end
-
 end
