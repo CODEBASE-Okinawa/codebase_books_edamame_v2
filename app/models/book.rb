@@ -39,3 +39,14 @@ class Book < ApplicationRecord
     ["lendings"]
   end
 end
+
+books = Book.all.includes(:lendings)
+
+booklend =[]
+
+books.each do |book|
+  lending = book.lending
+  if lending.nil? || lending.return_status
+    booklend << book.id
+  end
+end
